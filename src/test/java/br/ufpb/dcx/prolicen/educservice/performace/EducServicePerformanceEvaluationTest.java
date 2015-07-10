@@ -7,6 +7,7 @@ import br.dcx.ufpb.prolicen.educservice.model.Exercicio;
 
 public class EducServicePerformanceEvaluationTest extends
 		EducServiceTest {
+	
 
 	/**
 	 * Cenário 1: Cadastrar 10.000 alunos e medir o tempo de cada cadastro.

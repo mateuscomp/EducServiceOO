@@ -93,7 +93,7 @@ public class ExercicioMySqlDAO extends AbstractMySqlDAO implements ExercicioDAO 
 
 	private List<String> findPalavrasChaveByExercicioId(String idExercicio) {
 		String sql = "SELECT * FROM " + getDatabaseName() + "."
-				+ PALAVRAS_CHAVE_TABLE + " p WHERE p.palavra_chave = ?";
+				+ PALAVRAS_CHAVE_TABLE + " p WHERE p.id_exercicio = ?";
 
 		List<String> palavrasChave = null;
 		try {
