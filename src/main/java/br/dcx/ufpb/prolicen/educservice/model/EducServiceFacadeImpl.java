@@ -83,8 +83,7 @@ public class EducServiceFacadeImpl implements EducServiceFacade {
 	}
 
 	public Exercicio pesquisarExercicioPorId(String idExercicio) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.exercicioService.pesquisarExercicioPorId(idExercicio);
 	}
 
 	public QuestaoVouF cadastrarQuestaoVouF(String idExercicio,

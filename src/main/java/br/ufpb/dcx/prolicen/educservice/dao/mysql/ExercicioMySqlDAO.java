@@ -117,4 +117,32 @@ public class ExercicioMySqlDAO extends AbstractMySqlDAO implements ExercicioDAO 
 		}
 		return palavrasChave;
 	}
+
+	public Exercicio pesquisarExercicioPorId(String idExercicio) {
+		String sql = "SELECT * FROM " + getDatabaseName() + "." + TABLE_NAME
+				+ " a WHERE a.id = ?";
+
+		Exercicio exercicio = null;
+		try {
+			Connection connection = this.createConnection();
+
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setLong(1, Long.parseLong(idExercicio));
+
+			ResultSet resultSet = ps.executeQuery();
+
+			if (resultSet.next()) {
+				exercicio = new Exercicio(idExercicio);
+				exercicio.setId(String.valueOf(resultSet.getLong("id")));
+				exercicio
+						.setPalavrasChave(findPalavrasChaveByExercicioId(String
+								.valueOf(exercicio.getId())));
+			}
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return exercicio;
+	}
 }

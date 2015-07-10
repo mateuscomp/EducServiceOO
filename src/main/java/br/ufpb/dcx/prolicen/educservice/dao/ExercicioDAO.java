@@ -7,4 +7,6 @@ import br.dcx.ufpb.prolicen.educservice.model.Exercicio;
 public interface ExercicioDAO {
 
 	Exercicio criarExercicio(List<String> palavrasChave);
+
+	Exercicio pesquisarExercicioPorId(String idExercicio);
 }

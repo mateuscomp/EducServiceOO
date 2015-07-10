@@ -22,4 +22,8 @@ public class ExercicioService {
 		return exercicioDao.criarExercicio(palavrasChave);
 	}
 
+	public Exercicio pesquisarExercicioPorId(String idExercicio) {
+		return exercicioDao.pesquisarExercicioPorId(idExercicio);
+	}
+
 }
