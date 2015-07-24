@@ -5,62 +5,59 @@ import org.junit.Test;
 import br.dcx.ufpb.prolicen.educservice.EducServiceTest;
 import br.dcx.ufpb.prolicen.educservice.model.Exercicio;
 
-public class EducServicePerformanceEvaluationTest extends
-		EducServiceTest {
-	
+public class EducServicePerformanceEvaluationTest extends EducServiceTest {
 
 	/**
-	 * Cenário 1: Cadastrar 10.000 alunos e medir o tempo de cada cadastro.
+	 * Cenário 1: Cadastrar 100.000 alunos e medir o tempo de cada cadastro.
 	 * Depois colocar cada tempo desse numa planilha e traçar o gráfico desse
 	 * tempo medido ao longo a medida em que aumenta o número de alunos Variável
 	 * #tempoCadastroAluno
 	 */
-//	@Test
-//	public void coletarTempoGastoParaCadastrarMuitosAlunos() {
-//		int quantidadeDeAlunosACadastrar = 10000;
-//
-//		for (int i = 0; i < quantidadeDeAlunosACadastrar; i++) {
-//			AlunoPerformanceHelper.cadastrarAlunoEExportarTempoGasto(facade, i,
-//					"#tempoCadastroAluno");
-//		}
-//	}
+	@Test
+	public void coletarTempoGastoParaCadastrarMuitosAlunos() {
+		int quantidadeDeAlunosACadastrar = 100000;
+
+		for (int i = 0; i < quantidadeDeAlunosACadastrar; i++) {
+			AlunoPerformanceHelper.cadastrarAlunoEExportarTempoGasto(facade, i,
+					"#tempoCadastroAluno");
+		}
+	}
 
 	/**
 	 * Cenário 2: Cadastra um exercício e vai aumentando o número de questões
-	 * até 10.000 e calcula o tempo gasto para cadastrar cada questão Variável
+	 * até 100.000 e calcula o tempo gasto para cadastrar cada questão Variável
 	 * #tempoCadastroQuestao1Exercicio
 	 */
-//	@Test
-//	public void coletarTempoGastoParaCadastrarUmExercicioComMuitasQuestoes() {
-//		Exercicio exercicio = ExercicioPerformanceHelper
-//				.criarExercicioComCincoPalavrasChave(facade);
-//
-//		int quantidadeDeQuestoes = 10000;
-//
-//		for (int i = 0; i < quantidadeDeQuestoes; i++) {
-//			QuestaoMultiplaEscolhaPerformanceHelper
-//					.cadastrarQuestaoMultiplaEscolhaEExportarTempoGasto(facade,
-//							exercicio, i, "#tempoCadastroQuestao1Exercicio");
-//		}
-//	}
+	@Test
+	public void coletarTempoGastoParaCadastrarUmExercicioComMuitasQuestoes() {
+		Exercicio exercicio = ExercicioPerformanceHelper
+				.criarExercicioComCincoPalavrasChave(facade);
+
+		int quantidadeDeQuestoes = 100000;
+		for (int i = 0; i < quantidadeDeQuestoes; i++) {
+			QuestaoMultiplaEscolhaPerformanceHelper
+					.cadastrarQuestaoMultiplaEscolhaEExportarTempoGasto(facade,
+							exercicio, i, "#tempoCadastroQuestao1Exercicio");
+		}
+	}
 
 	/**
 	 * Cenário 3: Cadastrar 10.000 exercícios de 10 questões cada e calcular o
 	 * tempo de cadastro de cada exercício Variável
 	 * #tempoCadastroExercicio10Questoes
 	 */
-//	@Test
-//	public void coletarTempoGastoParaCadastrarMuitosExercicioComDezQuestoes() {
-//		int quantidadeDeExercicios = 10000;
-//		int quantidadeDeQuestoes = 10;
-//
-//		for (int i = 0; i < quantidadeDeExercicios; i++) {
-//			ExercicioPerformanceHelper
-//					.cadastrarExercicioComQuestoesDeMultiplaEscolhaEExportarTempoGasto(
-//							facade, quantidadeDeQuestoes,
-//							"#tempoCadastroExercicio10Questoes");
-//		}
-//	}
+	@Test
+	public void coletarTempoGastoParaCadastrarMuitosExercicioComDezQuestoes() {
+		int quantidadeDeExercicios = 100000;
+		int quantidadeDeQuestoes = 10;
+
+		for (int i = 0; i < quantidadeDeExercicios; i++) {
+			ExercicioPerformanceHelper
+					.cadastrarExercicioComQuestoesDeMultiplaEscolhaEExportarTempoGasto(
+							facade, quantidadeDeQuestoes,
+							"#tempoCadastroExercicio10Questoes");
+		}
+	}
 
 	/**
 	 * Cenário 4: - Depois de cadastrar 10.000 Exercícios e 10.000 alunos, você
@@ -71,7 +68,7 @@ public class EducServicePerformanceEvaluationTest extends
 	 */
 	@Test
 	public void coletarTempoDePesquisaDeExercicioEDeAlunoDepoisDeMuitosExerciciosEMuitosAlunosCadastrados() {
-		int qtdDeExerciciosEAlunos = 10000;
+		int qtdDeExerciciosEAlunos = 100000;
 		int qtdQuestoesPorExercicio = 10;
 
 		this.cadastrarMuitosAlunosMuitosExerciciosMuitasQuestoes(
